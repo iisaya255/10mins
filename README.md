@@ -1,2 +1,3 @@
 # 10mins
-algorithm
+
+algorithm by JS
