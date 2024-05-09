@@ -6,8 +6,7 @@ const aysncPool = aysnc (poolLimit, iter, iterFn) => {
 		const p = Promise.resolve().then(() => iterFn(item, iter))
 		ret.push(p)
 		exec.add(p)
-		const clean = () => exec.delete(p)
-		p.then(clean).catch(clean)
+        Promise.resolve().then(() => exec.delete(p))
 		if (execute.size >= poolLimit) {
 			await Promise.race(exec)
 		}
